@@ -24,7 +24,7 @@ struct MenuItem {
 }
 
 enum MenuAnimation {
-    case MenuAnimationNormal;
+    case MenuAnimationSwipe;
     case MenuAnimationFloat;
 }
 
@@ -56,7 +56,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     var openedView: UINavigationController?;
     var panGestureSlideMenu: UIScreenEdgePanGestureRecognizer?;
     var panGestureSlideOverMenu: UIPanGestureRecognizer?;
-    var menuAnimation: MenuAnimation = MenuAnimation.MenuAnimationNormal;   // by default
+    var menuAnimation: MenuAnimation = MenuAnimation.MenuAnimationSwipe;   // by default
     
     private var curTranslateX: CGFloat = 0;
     
@@ -315,7 +315,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     private func transformWithAnimationToView(#translation: CGPoint) -> CGAffineTransform {
         var tranform: CGAffineTransform = CGAffineTransform();
         switch (menuAnimation) {
-        case MenuAnimation.MenuAnimationNormal:
+        case MenuAnimation.MenuAnimationSwipe:
             tranform = CGAffineTransformMakeTranslation(translation.x, 0);
             break;
             
