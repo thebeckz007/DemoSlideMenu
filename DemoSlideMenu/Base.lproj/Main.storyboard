@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Agv-ew-pGE">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Menu-->
+        <scene sceneID="1Te-zo-BeY">
+            <objects>
+                <viewController title="Menu" id="Agv-ew-pGE" customClass="MenuViewController" customModule="DemoSlideMenu" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dWc-7o-6HM"/>
+                        <viewControllerLayoutGuide type="bottom" id="yEO-Jc-upv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p9q-V9-kws">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="pne-om-Zqe">
+                                <rect key="frame" x="0.0" y="0.0" width="500" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Agv-ew-pGE" id="cXj-AZ-qEc"/>
+                                    <outlet property="delegate" destination="Agv-ew-pGE" id="Db2-12-lXx"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dQz-4y-5Pb" userLabel="View Containner">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RhP-7b-9GA" userLabel="Button - slide over menu">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnOverMenu_Tapped:" destination="Agv-ew-pGE" eventType="touchUpInside" id="go5-OK-Tce"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="RhP-7b-9GA" secondAttribute="bottom" id="IyK-z3-eJM"/>
+                                    <constraint firstItem="RhP-7b-9GA" firstAttribute="top" secondItem="dQz-4y-5Pb" secondAttribute="top" id="PY5-7a-Hk3"/>
+                                    <constraint firstAttribute="trailing" secondItem="RhP-7b-9GA" secondAttribute="trailing" id="nJ6-K0-p7T"/>
+                                    <constraint firstItem="RhP-7b-9GA" firstAttribute="leading" secondItem="dQz-4y-5Pb" secondAttribute="leading" id="sbj-sS-Kck"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="pne-om-Zqe" secondAttribute="trailing" constant="100" id="3Sc-V3-U86"/>
+                            <constraint firstItem="pne-om-Zqe" firstAttribute="leading" secondItem="p9q-V9-kws" secondAttribute="leading" id="8zD-iv-kz0"/>
+                            <constraint firstAttribute="trailing" secondItem="dQz-4y-5Pb" secondAttribute="trailing" id="Bcj-6I-XTn"/>
+                            <constraint firstItem="dQz-4y-5Pb" firstAttribute="top" secondItem="p9q-V9-kws" secondAttribute="topMargin" id="U4S-3z-b3k"/>
+                            <constraint firstItem="yEO-Jc-upv" firstAttribute="top" secondItem="pne-om-Zqe" secondAttribute="bottom" id="n4S-Nl-2Ft"/>
+                            <constraint firstItem="pne-om-Zqe" firstAttribute="top" secondItem="p9q-V9-kws" secondAttribute="topMargin" id="q1x-9R-Els"/>
+                            <constraint firstItem="yEO-Jc-upv" firstAttribute="top" secondItem="dQz-4y-5Pb" secondAttribute="bottom" id="sJ9-9y-aNZ"/>
+                            <constraint firstItem="dQz-4y-5Pb" firstAttribute="leading" secondItem="p9q-V9-kws" secondAttribute="leading" id="yBB-Fj-F8m"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="oHa-gw-SPl"/>
+                    <connections>
+                        <outlet property="btnOverMenu" destination="RhP-7b-9GA" id="xmg-sq-yfa"/>
+                        <outlet property="tbvMenus" destination="pne-om-Zqe" id="gdR-V6-Kvg"/>
+                        <outlet property="vContainner" destination="dQz-4y-5Pb" id="Jya-3C-Rky"/>
+                        <segue destination="bUv-eR-Cel" kind="custom" identifier="menu1Segue" customClass="MenuStoryBoardSegue" customModule="DemoSlideMenu" customModuleProvider="target" id="230-qd-qyM"/>
+                        <segue destination="EIN-3h-RLB" kind="custom" identifier="menu2Segue" customClass="MenuStoryBoardSegue" customModule="DemoSlideMenu" customModuleProvider="target" id="ZmT-9o-0xr"/>
+                        <segue destination="FEx-0Q-SXX" kind="custom" identifier="menu3Segue" customClass="MenuStoryBoardSegue" customModule="DemoSlideMenu" customModuleProvider="target" id="ben-nM-5p7"/>
+                        <segue destination="7YP-uX-Xx0" kind="custom" identifier="menu4Segue" customClass="MenuStoryBoardSegue" customModule="DemoSlideMenu" customModuleProvider="target" id="6RK-9i-wRa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7uX-gZ-57Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2238" y="1592"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lP9-iv-GXR">
+            <objects>
+                <navigationController id="bUv-eR-Cel" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Sh-xt-qif">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ehA-VE-YBZ" kind="relationship" relationship="rootViewController" id="gX4-pd-AHu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lLd-tQ-tlY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3218" y="497"/>
+        </scene>
+        <!--Menu 1-->
+        <scene sceneID="CQh-u9-jLW">
+            <objects>
+                <viewController title="Menu 1" id="ehA-VE-YBZ" customClass="menu1ViewController" customModule="DemoSlideMenu" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ebR-hp-LML"/>
+                        <viewControllerLayoutGuide type="bottom" id="aX0-FT-k1M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rQ4-EK-ePk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mu" translatesAutoresizingMaskIntoConstraints="NO" id="aHE-qW-YQV">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="aX0-FT-k1M" firstAttribute="top" secondItem="aHE-qW-YQV" secondAttribute="bottom" id="6tR-gy-Rjb"/>
+                            <constraint firstAttribute="trailing" secondItem="aHE-qW-YQV" secondAttribute="trailing" id="9IQ-Ax-xER"/>
+                            <constraint firstItem="aHE-qW-YQV" firstAttribute="leading" secondItem="rQ4-EK-ePk" secondAttribute="leading" id="HPx-Ow-b9y"/>
+                            <constraint firstItem="aHE-qW-YQV" firstAttribute="top" secondItem="rQ4-EK-ePk" secondAttribute="top" id="fbH-3l-1Ah"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="6Lz-su-z5H">
+                        <barButtonItem key="leftBarButtonItem" image="menu blk" id="PPg-uz-ssa">
+                            <connections>
+                                <action selector="btnSlideMenu_Tapped:" destination="ehA-VE-YBZ" id="hCi-nC-gn5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mar-hh-tPr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3906" y="497"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tIU-SX-JjW">
+            <objects>
+                <navigationController id="EIN-3h-RLB" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iC1-Kq-eYH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="g9c-7l-gDb">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="0G4-pF-j7T" kind="relationship" relationship="rootViewController" id="LSq-8Q-RVW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6EI-l5-RnY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3218" y="1223"/>
+        </scene>
+        <!--Menu 2-->
+        <scene sceneID="zEF-M6-deN">
+            <objects>
+                <viewController title="Menu 2" id="0G4-pF-j7T" customClass="menu2ViewController" customModule="DemoSlideMenu" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AUL-1g-1CW"/>
+                        <viewControllerLayoutGuide type="bottom" id="VfV-25-iOC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="07X-KW-XNZ">
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="real" translatesAutoresizingMaskIntoConstraints="NO" id="BAK-Xc-rCf">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="BAK-Xc-rCf" secondAttribute="trailing" id="7RT-pT-HEh"/>
+                            <constraint firstItem="VfV-25-iOC" firstAttribute="top" secondItem="BAK-Xc-rCf" secondAttribute="bottom" id="EMI-lo-lxs"/>
+                            <constraint firstItem="BAK-Xc-rCf" firstAttribute="top" secondItem="07X-KW-XNZ" secondAttribute="top" id="ciS-p6-ADc"/>
+                            <constraint firstItem="BAK-Xc-rCf" firstAttribute="leading" secondItem="07X-KW-XNZ" secondAttribute="leading" id="o5N-0U-PE4"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Zuq-fM-vlb">
+                        <barButtonItem key="leftBarButtonItem" image="menu blk" id="9qT-7l-4dx">
+                            <connections>
+                                <action selector="btnSlideMenu_Tapped:" destination="0G4-pF-j7T" id="9Z9-yg-QEy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Khq-rO-Ogp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3906" y="1223"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="q4H-pK-k7X">
+            <objects>
+                <navigationController id="FEx-0Q-SXX" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="djg-oq-drQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="1pB-GH-o8b" kind="relationship" relationship="rootViewController" id="eEN-AU-4px"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uBX-dM-zC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3218" y="1927"/>
+        </scene>
+        <!--Menu 3-->
+        <scene sceneID="4FQ-RC-NXK">
+            <objects>
+                <viewController title="Menu 3" id="1pB-GH-o8b" customClass="menu3ViewController" customModule="DemoSlideMenu" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U6S-AJ-jta"/>
+                        <viewControllerLayoutGuide type="bottom" id="olp-QP-pyw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ja3-gA-RDE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chelsea" translatesAutoresizingMaskIntoConstraints="NO" id="VRi-7l-Mdf">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="olp-QP-pyw" firstAttribute="top" secondItem="VRi-7l-Mdf" secondAttribute="bottom" id="0D6-kz-p1k"/>
+                            <constraint firstAttribute="trailing" secondItem="VRi-7l-Mdf" secondAttribute="trailing" id="JNO-vU-6YM"/>
+                            <constraint firstItem="VRi-7l-Mdf" firstAttribute="leading" secondItem="ja3-gA-RDE" secondAttribute="leading" id="aw6-WQ-xTB"/>
+                            <constraint firstItem="VRi-7l-Mdf" firstAttribute="top" secondItem="ja3-gA-RDE" secondAttribute="top" id="piC-KB-459"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="fPc-m5-MGd">
+                        <barButtonItem key="leftBarButtonItem" image="menu blk" id="7iP-Tq-Keb">
+                            <connections>
+                                <action selector="btnSlideMenu_Tapped:" destination="1pB-GH-o8b" id="Wxe-FW-fAb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S19-OW-G8J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3906" y="1927"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bXy-ga-PVB">
+            <objects>
+                <navigationController id="7YP-uX-Xx0" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zHk-am-Tng">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="pV8-3y-j0c" kind="relationship" relationship="rootViewController" id="oXz-om-Msv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5IT-p9-ayb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3218" y="2635"/>
+        </scene>
+        <!--Menu 4-->
+        <scene sceneID="XYq-DN-gfR">
+            <objects>
+                <viewController title="Menu 4" id="pV8-3y-j0c" customClass="menu4ViewController" customModule="DemoSlideMenu" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Bou-mF-ui8"/>
+                        <viewControllerLayoutGuide type="bottom" id="VmV-zi-3EC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="itV-j3-6OR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dortmund" translatesAutoresizingMaskIntoConstraints="NO" id="b1B-IC-ou4">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="b1B-IC-ou4" firstAttribute="top" secondItem="itV-j3-6OR" secondAttribute="top" id="by2-Cu-CLY"/>
+                            <constraint firstItem="b1B-IC-ou4" firstAttribute="leading" secondItem="itV-j3-6OR" secondAttribute="leading" id="phe-Sl-BsB"/>
+                            <constraint firstItem="VmV-zi-3EC" firstAttribute="top" secondItem="b1B-IC-ou4" secondAttribute="bottom" id="sJh-6D-P4U"/>
+                            <constraint firstAttribute="trailing" secondItem="b1B-IC-ou4" secondAttribute="trailing" id="way-F4-BAT"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Z1l-CX-OI2">
+                        <barButtonItem key="leftBarButtonItem" image="menu blk" id="yU8-qA-AC6">
+                            <connections>
+                                <action selector="btnSlideMenu_Tapped:" destination="pV8-3y-j0c" id="EYz-92-SVU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="57l-7x-oxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3906" y="2635"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chelsea" width="800" height="450"/>
+        <image name="dortmund" width="900" height="506"/>
+        <image name="menu blk" width="20" height="19"/>
+        <image name="mu" width="900" height="563"/>
+        <image name="real" width="900" height="506"/>
+    </resources>
+</document>

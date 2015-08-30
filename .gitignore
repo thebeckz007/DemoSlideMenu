@@ -1,0 +1,4 @@
+**/build/*
+**/xcshareddata/*
+**/xcuserdata/*
+**/.DS_Store
